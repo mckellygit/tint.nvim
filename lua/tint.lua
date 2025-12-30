@@ -219,6 +219,13 @@ local function setup_autocmds()
     callback = __.on_colorscheme,
   })
 
+  -- so that entering quickfix causes dimming of all other windows ...
+  vim.api.nvim_create_autocmd({ "FileType" }, {
+    group = augroup,
+    pattern = { "qf" },
+    callback = __.on_colorscheme,
+  })
+
   __.setup_autocmds = true
 end
 
